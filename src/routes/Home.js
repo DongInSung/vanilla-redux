@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { connect } from "react-redux";
-import { actionCreators } from "../store/store";
+// import { actionCreators } from "../store/store";
+import { add } from "../store/store";
 import ToDo from "../components/ToDo";
 
 function Home( {toDos, addToDo} ) {
@@ -17,7 +18,7 @@ function Home( {toDos, addToDo} ) {
             return;
         }
         addToDo(text);
-        
+
         setText("");
         document.querySelector("input").focus();
     }
@@ -45,7 +46,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        addToDo: (text) => dispatch(actionCreators.addToDo(text))
+        addToDo: (text) => dispatch(add(text))
         
     }
 }
